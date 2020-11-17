@@ -3,6 +3,11 @@ import { GetStaticProps } from 'next'
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github'
 import { useGithubJsonForm, useGithubToolbarPlugins } from 'react-tinacms-github'
 import { usePlugin } from 'tinacms'
+import styled from 'styled-components'
+import Link from 'next/link'
+import { Nav } from '../components/Nav'
+import { BodyCenter, BodyRight, BodyLeft, ContentBody } from '../components/ContentBody'
+import React from 'react'
 
 export default function Home({file, cms}) {
 
@@ -24,10 +29,23 @@ export default function Home({file, cms}) {
 
   return (
     <div>
-      {data.title}
+      <Nav title={data.title} />
+      <ContentBody>
+        <BodyLeft>
+
+        </BodyLeft>
+        <BodyCenter>
+          test
+        </BodyCenter>
+        <BodyRight>
+          
+        </BodyRight>
+      </ContentBody>
     </div>
   )
 }
+
+
 
 export const getStaticProps: GetStaticProps = async function({
   preview,
