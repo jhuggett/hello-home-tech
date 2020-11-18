@@ -77,7 +77,7 @@ const getProps = (fileName: string) => async ({
       error: null,
       preview: false,
       configFile: {
-        fileRelativePath: `content/global.json`,
+        fileRelativePath: `content/config.json`,
         data: (await import(`../content/config.json`))
           .default,
       },
