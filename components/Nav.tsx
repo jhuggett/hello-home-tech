@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import styled from 'styled-components'
+import { InlineForm, InlineTextField } from 'react-tinacms-inline'
 
 export interface NavProps {
-  title: string
+  
 }
 
-export const Nav = ({ title } : NavProps) => {
+export const Nav = ({ } : NavProps) => {
   return (
     <Header>
         <NavigationLink>
@@ -20,7 +21,7 @@ export const Nav = ({ title } : NavProps) => {
         </NavigationLink>
 
         <Title>
-          {title}
+          <InlineTextField name={'title'} />
         </Title>
 
         <NavigationLink>

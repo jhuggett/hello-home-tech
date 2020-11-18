@@ -8,40 +8,31 @@ import Link from 'next/link'
 import { Nav } from '../components/Nav'
 import { BodyCenter, BodyRight, BodyLeft, ContentBody } from '../components/ContentBody'
 import React from 'react'
+import { InlineForm, InlineTextarea } from 'react-tinacms-inline'
 
 export default function Home({file, cms}) {
 
 
-  const formOptions = {
-    labeL: 'Home Page',
-    fields: [
-      {
-        name: 'title',
-        component: 'text'
-      }
-    ]
-  }
-
-  const [data, form] = useGithubJsonForm(file, formOptions)
+  const [data, form] = useGithubJsonForm(file)
   usePlugin(form)
 
   useGithubToolbarPlugins()
 
   return (
-    <div>
-      <Nav title={data.title} />
+    <InlineForm form={form}>
+      <Nav />
       <ContentBody>
         <BodyLeft>
 
         </BodyLeft>
         <BodyCenter>
-          test
+          <InlineTextarea name="blurb" />
         </BodyCenter>
         <BodyRight>
           
         </BodyRight>
       </ContentBody>
-    </div>
+    </InlineForm>
   )
 }
 
