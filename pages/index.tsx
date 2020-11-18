@@ -2,72 +2,60 @@ import Head from 'next/head'
 import { GetStaticProps } from 'next'
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github'
 import { useGithubJsonForm, useGithubToolbarPlugins } from 'react-tinacms-github'
-import { usePlugin } from 'tinacms'
-import styled from 'styled-components'
-import Link from 'next/link'
+import { usePlugin, useForm, useFormScreenPlugin } from 'tinacms'
 import { Nav } from '../components/Nav'
 import { BodyCenter, BodyRight, BodyLeft, ContentBody } from '../components/ContentBody'
 import React from 'react'
+import { InlineForm, InlineTextarea } from 'react-tinacms-inline'
+import getProps from '../getProps'
 
-export default function Home({file, cms}) {
+export default function Home({file, cms, configFile}) {
 
+  
 
-  const formOptions = {
-    labeL: 'Home Page',
+  const [data, form] = useGithubJsonForm(file)
+  usePlugin(form)
+
+  const [configData, configForm] = useGithubJsonForm(configFile, {
+    label: 'Config',
     fields: [
       {
         name: 'title',
         component: 'text'
       }
     ]
-  }
+  })
 
-  const [data, form] = useGithubJsonForm(file, formOptions)
-  usePlugin(form)
-
+  useFormScreenPlugin(configForm)
   useGithubToolbarPlugins()
 
   return (
-    <div>
-      <Nav title={data.title} />
+    <>
+    <InlineForm form={form}>
+      <Nav data={configData} cms={cms}/>
+      
       <ContentBody>
         <BodyLeft>
 
         </BodyLeft>
         <BodyCenter>
-          test
+          <InlineTextarea name="blurb" />
         </BodyCenter>
         <BodyRight>
           
         </BodyRight>
       </ContentBody>
-    </div>
+    </InlineForm>
+    </>
   )
 }
 
 
 
-export const getStaticProps: GetStaticProps = async function({
-  preview,
-  previewData
-}) {
-  if (preview) {
-    return getGithubPreviewProps({
-      ...previewData,
-      fileRelativePath: 'content/home.json',
-      parse: parseJson
-    })
-  }
 
-  return {
-    props: {
-      sourceProvider: null,
-      error: null,
-      preview: false,
-      file: {
-        fileRelativePath: 'content/home.json',
-        data: (await import('../content/home.json')).default
-      }
-    }
-  }
-}
+
+
+
+
+
+export const getStaticProps: GetStaticProps = getProps('home')
