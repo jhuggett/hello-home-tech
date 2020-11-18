@@ -1,12 +1,14 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import { InlineForm, InlineTextField } from 'react-tinacms-inline'
+import { EditLink } from './EditLink'
 
 export interface NavProps {
   data: any
+  cms;
 }
 
-export const Nav = ({data} : NavProps) => {
+export const Nav = ({data, cms} : NavProps) => {
   
   return (
       <Header>
@@ -33,7 +35,7 @@ export const Nav = ({data} : NavProps) => {
 
           <NavigationLink>
             <Link href="/edit">
-              Edit Site
+              <EditLink cms={cms} />
             </Link>
           </NavigationLink>
         </Header>
