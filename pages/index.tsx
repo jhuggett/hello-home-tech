@@ -17,7 +17,15 @@ export default function Home({file, cms, configFile}) {
   const [data, form] = useGithubJsonForm(file)
   usePlugin(form)
 
-  const [configData, configForm] = useGithubJsonForm(configFile)
+  const [configData, configForm] = useGithubJsonForm(configFile, {
+    label: 'Config',
+    fields: [
+      {
+        name: 'title',
+        component: 'text'
+      }
+    ]
+  })
 
   useFormScreenPlugin(configForm)
 
@@ -55,7 +63,7 @@ const getProps = (fileName: string) => async ({
   if (preview) {
     const contentFile = await getGithubPreviewProps({
       ...previewData,
-      fileRelativePath: `json/${fileName}.json`,
+      fileRelativePath: `content/${fileName}.json`,
       parse: parseJson,
     });
     return {
