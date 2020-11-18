@@ -1,9 +1,13 @@
-import { TinaCMS, TinaProvider } from 'tinacms'
-import { GithubClient, TinacmsGithubProvider, GithubMediaStore } from 'react-tinacms-github'
+import { TinaCMS, TinaProvider, usePlugin } from 'tinacms'
+import { GithubClient, TinacmsGithubProvider, GithubMediaStore, useGithubJsonForm } from 'react-tinacms-github'
 import { ThemeProvider, createGlobalStyle } from "styled-components"
 import { useMemo, useState, useRef, useEffect } from 'react';
 import Head from 'next/head'
 import { Persistor } from '../Persistor'
+import data from '../content/config.json'
+import { GetStaticProps } from 'next';
+import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
+
 
 
 function App({pageProps, Component}) {
@@ -11,6 +15,7 @@ function App({pageProps, Component}) {
   const [theme, setTheme] = useState(themes[0].theme)
 
   themeHandler.setSetTheme(setTheme)
+  
 
   const memoizedCms = useMemo(() => {
     const github = new GithubClient({
@@ -35,6 +40,7 @@ function App({pageProps, Component}) {
 
   useEffect(() => {
 
+
     const name = Persistor.retrieve('theme-name')?.name 
 
     if(name) {
@@ -42,6 +48,8 @@ function App({pageProps, Component}) {
     }
 
   }, [])
+
+  
   
     return (
       /**
@@ -62,12 +70,45 @@ function App({pageProps, Component}) {
           >
             {/* <EditLink cms={memoizedCms} />
             <button onClick={() => themeHandler.current.swapThemes()}>Swap theme</button> */}
-            <Component cms={memoizedCms} themeHandler={themeHandler} {...pageProps} />
+
+
+            <Component  cms={memoizedCms} themeHandler={themeHandler} {...pageProps} />
           </TinacmsGithubProvider>
         </TinaProvider>
       </ThemeProvider>
     )
   
+}
+
+
+export const getStaticProps: GetStaticProps = async function({
+  preview,
+  previewData
+}) {
+  if (preview) {
+    const props = getGithubPreviewProps({
+      ...previewData,
+      fileRelativePath: 'content/config.json',
+      parse: parseJson
+    })
+    console.log(props);
+    
+    return {
+      ...props
+    }
+  }
+
+  return {
+    props: {
+      sourceProvider: null,
+      error: null,
+      preview: false,
+      file: {
+        fileRelativePath: 'content/config.json',
+        data: (await import('../content/config.json')).default
+      }
+    }
+  }
 }
 
 const onLogin = async () => {
