@@ -21,7 +21,7 @@ export default function Services({cms, file, configFile}) {
 
         </BodyLeft>
         <BodyCenter>
-          <InlineTextarea name="blurb" />
+          
         </BodyCenter>
         <BodyRight>
           
