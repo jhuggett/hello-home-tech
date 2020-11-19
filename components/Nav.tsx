@@ -14,29 +14,32 @@ export const Nav = ({data, cms} : NavProps) => {
       <Header>
           <NavigationLink>
             <Link href="/services">
-              Services
+              {data.services}
             </Link>
           </NavigationLink>
           <NavigationLink>
             <Link href="/testimonials">
-              Testimonials
+              {data.testimonials}
             </Link>
           </NavigationLink>
 
           <Title>
+          <Link href="/">
             {data.title}
+          </Link>
+            
           </Title>
 
           <NavigationLink>
             <Link href="/contact">
-              Contact
+              {data.contact}
             </Link>
           </NavigationLink>
 
           <NavigationLink>
-            <Link href="/edit">
+            
               <EditLink cms={cms} />
-            </Link>
+            
           </NavigationLink>
         </Header>
   )
