@@ -23,6 +23,126 @@
       "background_color": "white",
       "text_color": "black",
       "align": "flex-start"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
+    },
+    {
+      "_template": "hero",
+      "headline": "This is a headline",
+      "subtext": "This is the subtext.",
+      "background_color": "white",
+      "text_color": "black",
+      "align": "center"
     }
   ]
 }
