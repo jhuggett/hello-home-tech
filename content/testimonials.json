@@ -2,10 +2,10 @@
   "blocks": [
     {
       "_template": "hero",
-      "headline": "This is a headline",
+      "headline": "This is a headlines",
       "subtext": "This is the subtext.",
-      "background_color": "white",
-      "text_color": "black",
+      "background_color": "#000000",
+      "text_color": "#FFFFFF",
       "align": "center"
     },
     {
@@ -22,7 +22,7 @@
       "subtext": "This is the subtext.",
       "background_color": "white",
       "text_color": "black",
-      "align": "center"
+      "align": "flex-start"
     }
   ]
 }
